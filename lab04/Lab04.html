@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Lab04-zj</title>
+  <script id="rtvshader-1" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    attribute vec4 vColor;
+    varying vec4 fColor;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+
+    void main()
+    {
+      fColor = vColor;
+      gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+    }
+	</script>
+  <script id="rtfshader-1" type="x-shader/x-fragment">
+    precision mediump float;
+    varying vec4 fColor;
+    void main()
+    {
+      gl_FragColor = fColor;
+    }
+	</script>
+  <script type="text/javascript" src="js/common/webgl-utils.js"></script>
+  <script type="text/javascript" src="js/common/initShaders.js"></script>
+  <script type="text/javascript" src="js/common/gl-matrix.js"></script>
+
+  <script type="text/javascript" src="js/ch/Lab04.js"></script>
+</head>
+
+<body onload="initCube()">
+  <h1>Task2.1</h1>
+  <canvas id="rtcb-canvas-1" width="600" height="600">你的浏览器不支持HTML5 canvas元素</canvas>
+  <br>
+  <button id="x+button">Rotate X +</button>
+  <button id="x-button">Rotate X -</button>
+  <button id="y+button">Rotate Y +</button>
+  <button id="y-button">Rotate Y -</button>
+  <button id="z+button">Rotate Z +</button>
+  <button id="z-button">Rotate Z -</button>
+  <br>
+  <button id="x+tbutton">translate X +</button>
+  <button id="x-tbutton">translate X -</button>
+  <button id="y+tbutton">translate Y +</button>
+  <button id="y-tbutton">translate Y -</button>
+  <button id="z+tbutton">translate Z +</button>
+  <button id="z-tbutton">translate Z -</button>
+  <br>
+  <button id="x+sbutton">scale X +</button>
+  <button id="x-sbutton">scale X -</button>
+  <button id="y+sbutton">scale Y +</button>
+  <button id="y-sbutton">scale Y -</button>
+  <button id="z+sbutton">scale Z +</button>
+  <button id="z-sbutton">scale Z -</button>
+</body>
+
+</html>
